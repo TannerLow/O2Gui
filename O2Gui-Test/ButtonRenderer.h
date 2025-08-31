@@ -16,7 +16,15 @@ public:
 
 	void update() override {
 		rectangle.setSize({ button->width, button->height });
-		rectangle.setPosition({ button->x, button->y });
+		rectangle.setFillColor(
+			sf::Color(
+				button->color.r,
+				button->color.g,
+				button->color.b,
+				button->color.a
+			)
+		);
+		setPosition({ button->x, button->y });
 	}
 
 protected:

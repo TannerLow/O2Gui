@@ -159,9 +159,18 @@
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonRenderer.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="GraphicsManager.h" />
+    <ClInclude Include="Image.h" />
+    <ClInclude Include="ImageRenderer.h" />
     <ClInclude Include="RateLimiter.h" />
+    <ClInclude Include="Renderable.h" />
     <ClInclude Include="Renderer.h" />
+    <ClInclude Include="ScrollBarComponentLocations.h" />
+    <ClInclude Include="ScrollBarTextures.h" />
+    <ClInclude Include="ScrollDirection.h" />
+    <ClInclude Include="ScrollPanel.h" />
+    <ClInclude Include="ScrollPanelRenderer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

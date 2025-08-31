@@ -3,6 +3,7 @@
 
 class Renderer : public sf::Drawable, public sf::Transformable {
 public:
+	bool owned = false;
 	virtual void update() = 0;
 
 protected:
