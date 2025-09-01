@@ -153,13 +153,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Font.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="TextRenderer.cpp" />
+    <ClCompile Include="Renderable.cpp" />
+    <ClCompile Include="Util\VertexHelper.cpp" />
     <ClCompile Include="_main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="ButtonRenderer.h" />
     <ClInclude Include="Color.h" />
+    <ClInclude Include="Font.h" />
     <ClInclude Include="GraphicsManager.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ImageRenderer.h" />
@@ -171,6 +176,9 @@
     <ClInclude Include="ScrollDirection.h" />
     <ClInclude Include="ScrollPanel.h" />
     <ClInclude Include="ScrollPanelRenderer.h" />
+    <ClInclude Include="Text.h" />
+    <ClInclude Include="TextRenderer.h" />
+    <ClInclude Include="Util\VertexHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

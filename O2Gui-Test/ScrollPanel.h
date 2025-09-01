@@ -1,6 +1,4 @@
 #pragma once
-#include <memory>
-#include "Renderer.h"
 #include "Renderable.h"
 #include "ScrollDirection.h"
 #include "ScrollBarComponentLocations.h"
@@ -115,12 +113,6 @@ public:
 
 		if (dirty) {
 			render();
-		}
-	}
-
-	void render() override {
-		if (auto sp = renderer.lock()) {
-			sp->update();
 		}
 	}
 };

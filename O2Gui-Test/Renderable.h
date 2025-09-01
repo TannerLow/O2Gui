@@ -7,5 +7,11 @@ public:
 	bool owned = false;
 	std::weak_ptr<Renderer> renderer;
 
-	virtual void render() = 0;
+	virtual ~Renderable() = 0;
+
+	virtual void render() {
+		if (auto sp = renderer.lock()) {
+			sp->update();
+		}
+	}
 };
