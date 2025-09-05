@@ -1,12 +1,11 @@
 #include <SFML/Graphics.hpp>
-#include "GraphicsManager.h"
+#include <O2/Gui/GraphicsManager.h>
 #include <iostream>
 #include <filesystem>
-#include "ScrollDirection.h"
-#include "ScrollBarTextures.h"
-#include "RateLimiter.h"
+#include <O2/Gui/ScrollDirection.h>
+#include <O2/Gui/ScrollBarTextures.h>
+#include <O2/Util/RateLimiter.h>
 
-#include "Text.h"
 
 namespace fs = std::filesystem;
 
@@ -20,14 +19,14 @@ int main() {
     RateLimiter drawLimiter(250);
     sf::RenderWindow window(sf::VideoMode({ 1000, 800 }), "SFML works!");
 
-    GraphicsManager graphicsManager;
+    o2::gui::GraphicsManager graphicsManager;
     
     auto button = graphicsManager.createButton();
     button->x = 10;
     button->y = 20;
     button->width = 200;
     button->height = 100;
-    button->color = Color(sf::Color::Green);
+    button->color = o2::gui::Color(sf::Color::Green);
     button->render();
     button->setOnClick(buttonClickedMessage);
 
@@ -44,7 +43,7 @@ int main() {
     temp->y = 290;
     temp->width = 220;
     temp->height = 220;
-    temp->color = Color(sf::Color::Red);
+    temp->color = o2::gui::Color(sf::Color::Red);
     temp->render();
 
     auto minecraftFont = graphicsManager.loadFont(
@@ -57,10 +56,17 @@ int main() {
 
     auto text = graphicsManager.createText("minecraft_unicode");
     text->text = "Hello world";
+    text->scale = 1.5;
+    text->x = 1;
+    text->y = 20;
+    text->colors[0] = o2::gui::Color(sf::Color::Green);
+    text->colors[3] = o2::gui::Color(sf::Color::Yellow);
+    text->colors[6] = o2::gui::Color(sf::Color::Red);
+    text->colors[9] = o2::gui::Color(sf::Color::Magenta);
     text->owned = true;
     text->render();
 
-    ScrollBarTextures scrollBarTextures;
+    o2::gui::ScrollBarTextures scrollBarTextures;
     scrollBarTextures.increase = fs::path("resources/gray_scroll_down.png");
     scrollBarTextures.bar = fs::path("resources/gray_scroll_bar.png");
     scrollBarTextures.barBackground = fs::path("resources/gray_scroll_bar_bg.png");
@@ -96,9 +102,9 @@ int main() {
                 }
             }
             else if (const auto* mouseWheelScrolled = event->getIf<sf::Event::MouseWheelScrolled>()) {
-                ScrollDirection direction = ScrollDirection::DOWN;
+                o2::gui::ScrollDirection direction = o2::gui::ScrollDirection::DOWN;
                 if (mouseWheelScrolled->delta > 0) {
-                    direction = ScrollDirection::UP;
+                    direction = o2::gui::ScrollDirection::UP;
                 }
 
                 scrollPanel->handleScroll(direction);

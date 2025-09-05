@@ -21,72 +21,87 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Font.cpp">
+    <ClCompile Include="src\O2\Gui\Font.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TextRenderer.cpp">
+    <ClCompile Include="src\O2\Gui\TextRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Util\VertexHelper.cpp">
+    <ClCompile Include="src\O2\Util\VertexHelper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Renderable.cpp">
+    <ClCompile Include="src\O2\Gui\Renderable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\O2\Gui\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\O2\Gui\ButtonRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\O2\Gui\ImageRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\O2\Gui\ScrollPanel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\O2\Gui\ScrollPanelRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RateLimiter.h">
+    <ClInclude Include="include\O2\Util\RateLimiter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicsManager.h">
+    <ClInclude Include="include\O2\Gui\GraphicsManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Button.h">
+    <ClInclude Include="include\O2\Gui\Button.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
+    <ClInclude Include="include\O2\Gui\Renderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ButtonRenderer.h">
+    <ClInclude Include="include\O2\Gui\ButtonRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Color.h">
+    <ClInclude Include="include\O2\Gui\Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Image.h">
+    <ClInclude Include="include\O2\Gui\Image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ImageRenderer.h">
+    <ClInclude Include="include\O2\Gui\ImageRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ScrollPanel.h">
+    <ClInclude Include="include\O2\Gui\ScrollPanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ScrollPanelRenderer.h">
+    <ClInclude Include="include\O2\Gui\ScrollPanelRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Renderable.h">
+    <ClInclude Include="include\O2\Gui\Renderable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ScrollDirection.h">
+    <ClInclude Include="include\O2\Gui\ScrollDirection.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ScrollBarTextures.h">
+    <ClInclude Include="include\O2\Gui\ScrollBarTextures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ScrollBarComponentLocations.h">
+    <ClInclude Include="include\O2\Gui\ScrollBarComponentLocations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Font.h">
+    <ClInclude Include="include\O2\Gui\Font.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TextRenderer.h">
+    <ClInclude Include="include\O2\Gui\TextRenderer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Text.h">
+    <ClInclude Include="include\O2\Gui\Text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Util\VertexHelper.h">
+    <ClInclude Include="include\O2\Util\VertexHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -4,13 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "O2Gui-Test", "O2Gui-Test\O2Gui-Test.vcxproj", "{E9283D67-0339-485E-9F7D-CF841AFFC816}"
-	ProjectSection(ProjectDependencies) = postProject
-		{A0E88AF2-051A-4B1B-8861-938ABBB7F56E} = {A0E88AF2-051A-4B1B-8861-938ABBB7F56E}
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "O2Gui-Common", "O2Gui-Common\O2Gui-Common.vcxproj", "{3DFD0856-39E7-4635-B5E1-B7E1A4174BE1}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "O2Gui-SFML", "O2Gui-SFML\O2Gui-SFML.vcxproj", "{A0E88AF2-051A-4B1B-8861-938ABBB7F56E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,22 +21,6 @@ Global
 		{E9283D67-0339-485E-9F7D-CF841AFFC816}.Release|x64.Build.0 = Release|x64
 		{E9283D67-0339-485E-9F7D-CF841AFFC816}.Release|x86.ActiveCfg = Release|Win32
 		{E9283D67-0339-485E-9F7D-CF841AFFC816}.Release|x86.Build.0 = Release|Win32
-		{3DFD0856-39E7-4635-B5E1-B7E1A4174BE1}.Debug|x64.ActiveCfg = Debug|x64
-		{3DFD0856-39E7-4635-B5E1-B7E1A4174BE1}.Debug|x64.Build.0 = Debug|x64
-		{3DFD0856-39E7-4635-B5E1-B7E1A4174BE1}.Debug|x86.ActiveCfg = Debug|Win32
-		{3DFD0856-39E7-4635-B5E1-B7E1A4174BE1}.Debug|x86.Build.0 = Debug|Win32
-		{3DFD0856-39E7-4635-B5E1-B7E1A4174BE1}.Release|x64.ActiveCfg = Release|x64
-		{3DFD0856-39E7-4635-B5E1-B7E1A4174BE1}.Release|x64.Build.0 = Release|x64
-		{3DFD0856-39E7-4635-B5E1-B7E1A4174BE1}.Release|x86.ActiveCfg = Release|Win32
-		{3DFD0856-39E7-4635-B5E1-B7E1A4174BE1}.Release|x86.Build.0 = Release|Win32
-		{A0E88AF2-051A-4B1B-8861-938ABBB7F56E}.Debug|x64.ActiveCfg = Debug|x64
-		{A0E88AF2-051A-4B1B-8861-938ABBB7F56E}.Debug|x64.Build.0 = Debug|x64
-		{A0E88AF2-051A-4B1B-8861-938ABBB7F56E}.Debug|x86.ActiveCfg = Debug|Win32
-		{A0E88AF2-051A-4B1B-8861-938ABBB7F56E}.Debug|x86.Build.0 = Debug|Win32
-		{A0E88AF2-051A-4B1B-8861-938ABBB7F56E}.Release|x64.ActiveCfg = Release|x64
-		{A0E88AF2-051A-4B1B-8861-938ABBB7F56E}.Release|x64.Build.0 = Release|x64
-		{A0E88AF2-051A-4B1B-8861-938ABBB7F56E}.Release|x86.ActiveCfg = Release|Win32
-		{A0E88AF2-051A-4B1B-8861-938ABBB7F56E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

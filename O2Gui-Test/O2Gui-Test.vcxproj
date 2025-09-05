@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)O2Gui-Common\include;$(SolutionDir)externals\SFML-3.0.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)externals\SFML-3.0.0\include;$(ProjectDir)include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -106,7 +106,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)O2Gui-Common\include;$(SolutionDir)externals\SFML-3.0.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)externals\SFML-3.0.0\include;$(ProjectDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,7 +123,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)O2Gui-Common\include;$(SolutionDir)externals\SFML-3.0.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)externals\SFML-3.0.0\include;$(ProjectDir)include</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -141,7 +141,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>SFML_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)O2Gui-Common\include;$(SolutionDir)externals\SFML-3.0.0\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)externals\SFML-3.0.0\include;$(ProjectDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -153,32 +153,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Font.cpp" />
+    <ClCompile Include="src\O2\Gui\Button.cpp" />
+    <ClCompile Include="src\O2\Gui\ButtonRenderer.cpp" />
+    <ClCompile Include="src\O2\Gui\Font.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="TextRenderer.cpp" />
-    <ClCompile Include="Renderable.cpp" />
-    <ClCompile Include="Util\VertexHelper.cpp" />
+    <ClCompile Include="src\O2\Gui\ImageRenderer.cpp" />
+    <ClCompile Include="src\O2\Gui\ScrollPanel.cpp" />
+    <ClCompile Include="src\O2\Gui\ScrollPanelRenderer.cpp" />
+    <ClCompile Include="src\O2\Gui\TextRenderer.cpp" />
+    <ClCompile Include="src\O2\Gui\Renderable.cpp" />
+    <ClCompile Include="src\O2\Util\VertexHelper.cpp" />
     <ClCompile Include="_main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Button.h" />
-    <ClInclude Include="ButtonRenderer.h" />
-    <ClInclude Include="Color.h" />
-    <ClInclude Include="Font.h" />
-    <ClInclude Include="GraphicsManager.h" />
-    <ClInclude Include="Image.h" />
-    <ClInclude Include="ImageRenderer.h" />
-    <ClInclude Include="RateLimiter.h" />
-    <ClInclude Include="Renderable.h" />
-    <ClInclude Include="Renderer.h" />
-    <ClInclude Include="ScrollBarComponentLocations.h" />
-    <ClInclude Include="ScrollBarTextures.h" />
-    <ClInclude Include="ScrollDirection.h" />
-    <ClInclude Include="ScrollPanel.h" />
-    <ClInclude Include="ScrollPanelRenderer.h" />
-    <ClInclude Include="Text.h" />
-    <ClInclude Include="TextRenderer.h" />
-    <ClInclude Include="Util\VertexHelper.h" />
+    <ClInclude Include="include\O2\Gui\Button.h" />
+    <ClInclude Include="include\O2\Gui\ButtonRenderer.h" />
+    <ClInclude Include="include\O2\Gui\Color.h" />
+    <ClInclude Include="include\O2\Gui\Font.h" />
+    <ClInclude Include="include\O2\Gui\GraphicsManager.h" />
+    <ClInclude Include="include\O2\Gui\Image.h" />
+    <ClInclude Include="include\O2\Gui\ImageRenderer.h" />
+    <ClInclude Include="include\O2\Util\VertexHelper.h" />
+    <ClInclude Include="include\O2\Util\RateLimiter.h" />
+    <ClInclude Include="include\O2\Gui\Renderable.h" />
+    <ClInclude Include="include\O2\Gui\Renderer.h" />
+    <ClInclude Include="include\O2\Gui\ScrollBarComponentLocations.h" />
+    <ClInclude Include="include\O2\Gui\ScrollBarTextures.h" />
+    <ClInclude Include="include\O2\Gui\ScrollDirection.h" />
+    <ClInclude Include="include\O2\Gui\ScrollPanel.h" />
+    <ClInclude Include="include\O2\Gui\ScrollPanelRenderer.h" />
+    <ClInclude Include="include\O2\Gui\Text.h" />
+    <ClInclude Include="include\O2\Gui\TextRenderer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
