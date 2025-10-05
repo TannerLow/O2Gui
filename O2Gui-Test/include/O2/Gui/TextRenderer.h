@@ -36,6 +36,8 @@ namespace o2 {
 			sf::FloatRect getBoundingBox() const;
 			sf::Vector2f getCenter() const;
 			void update() override;
+			bool containsPoint(float x, float y) const;
+			int getZIndex() const;
 
 		protected:
 			// void renderWithTextureUpdates(); Maybe some optimization I can do if I need to update text colors without changing positions or texCoords

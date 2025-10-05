@@ -9,7 +9,12 @@ namespace o2 {
 			scrollBarLimiter.setLimit(250);
 		}
 
-		void ScrollPanel::handleClick(float clickX, float clickY) {
+		void ScrollPanel::onClick(float clickX, float clickY, MouseButton mouseButton) {
+			if (mouseButton != MouseButton::Left) {
+				// TODO remove to click/unclick on inner elements
+				return;
+			}
+
 			ScrollBarComponentLocations& sbcl = scrollBarComponentLocations;
 			if (sbcl.scrollDecreaseX <= clickX and clickX <= sbcl.scrollDecreaseX + sbcl.scrollDecreaseWidth) {
 				if (sbcl.scrollDecreaseY <= clickY and clickY <= sbcl.scrollDecreaseY + sbcl.scrollDecreaseHeight) {
@@ -31,7 +36,12 @@ namespace o2 {
 			}
 		}
 
-		void ScrollPanel::handleClickRelease(float clickX, float clickY) {
+		void ScrollPanel::onClickRelease(float clickX, float clickY, MouseButton mouseButton) {
+			if (mouseButton != MouseButton::Left) {
+				// TODO remove to click/unclick on inner elements
+				return;
+			}
+
 			pressingDecrease = false;
 			pressingIncrease = false;
 			pressingBar = false;

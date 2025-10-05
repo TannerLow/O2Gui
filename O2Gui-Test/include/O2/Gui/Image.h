@@ -13,6 +13,7 @@ namespace o2 {
 			float width;
 			float height;
 			Color color;
+			int zIndex = 0;
 		};
 
 	} // namespace gui

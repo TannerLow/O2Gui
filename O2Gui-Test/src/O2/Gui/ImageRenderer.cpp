@@ -25,6 +25,18 @@ namespace o2 {
 			owned = image->owned;
 		}
 
+		bool ImageRenderer::containsPoint(float x, float y) const {
+			return 
+				image->x <= x                  and 
+				x <= image->x + image->width   and
+				image->y <= y                  and
+				y <= image->y + image->height;
+		}
+
+		int ImageRenderer::getZIndex() const {
+			return image->zIndex;
+		}
+
 		void ImageRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 			states.transform *= getTransform();
 			target.draw(rectangle, states);

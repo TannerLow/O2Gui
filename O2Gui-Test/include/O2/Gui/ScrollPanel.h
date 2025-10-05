@@ -28,12 +28,14 @@ namespace o2 {
 			RateLimiter scrollBarLimiter;
 
 			std::unordered_map<std::string, std::weak_ptr<Renderable>> elements;
+			int zIndex = 0;
+			bool clicked = false;
 
 		public:
 			ScrollPanel();
 
-			void handleClick(float clickX, float clickY);
-			void handleClickRelease(float clickX, float clickY);
+			void onClick(float clickX, float clickY, MouseButton mouseButton);
+			void onClickRelease(float clickX, float clickY, MouseButton mouseButton);
 			void scrollUp();
 			void scrollDown();
 			void scrollToMouse(float mouseX, float mouseY);

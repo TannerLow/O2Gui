@@ -12,9 +12,13 @@ namespace o2 {
 		public:
 			float x = 0;
 			float y = 0;
+			float width = 0;
+			float height = 0;
+			float maxWidth = 0;
 			float scale = 1;
 			std::string text;
 			std::unordered_map<size_t, Color> colors;
+			int zIndex = 0;
 		};
 
 	} // namespace gui

@@ -155,11 +155,16 @@
   <ItemGroup>
     <ClCompile Include="src\O2\Gui\Button.cpp" />
     <ClCompile Include="src\O2\Gui\ButtonRenderer.cpp" />
+    <ClCompile Include="src\O2\Gui\EventBroadcaster.cpp" />
     <ClCompile Include="src\O2\Gui\Font.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\O2\Gui\GraphicsManager.cpp" />
     <ClCompile Include="src\O2\Gui\ImageRenderer.cpp" />
+    <ClCompile Include="src\O2\Gui\Renderer.cpp" />
     <ClCompile Include="src\O2\Gui\ScrollPanel.cpp" />
     <ClCompile Include="src\O2\Gui\ScrollPanelRenderer.cpp" />
+    <ClCompile Include="src\O2\Gui\TextBox.cpp" />
+    <ClCompile Include="src\O2\Gui\TextBoxRenderer.cpp" />
     <ClCompile Include="src\O2\Gui\TextRenderer.cpp" />
     <ClCompile Include="src\O2\Gui\Renderable.cpp" />
     <ClCompile Include="src\O2\Util\VertexHelper.cpp" />
@@ -169,10 +174,14 @@
     <ClInclude Include="include\O2\Gui\Button.h" />
     <ClInclude Include="include\O2\Gui\ButtonRenderer.h" />
     <ClInclude Include="include\O2\Gui\Color.h" />
+    <ClInclude Include="include\O2\Gui\EventBroadcaster.h" />
     <ClInclude Include="include\O2\Gui\Font.h" />
     <ClInclude Include="include\O2\Gui\GraphicsManager.h" />
     <ClInclude Include="include\O2\Gui\Image.h" />
     <ClInclude Include="include\O2\Gui\ImageRenderer.h" />
+    <ClInclude Include="include\O2\Gui\MouseButton.h" />
+    <ClInclude Include="include\O2\Gui\TextBox.h" />
+    <ClInclude Include="include\O2\Gui\TextBoxRenderer.h" />
     <ClInclude Include="include\O2\Util\VertexHelper.h" />
     <ClInclude Include="include\O2\Util\RateLimiter.h" />
     <ClInclude Include="include\O2\Gui\Renderable.h" />

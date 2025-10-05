@@ -32,6 +32,10 @@ namespace o2 {
 
 			void onSizeUpdate();
 			void update() override;
+			bool containsPoint(float x, float y) const;
+			int getZIndex() const override;
+			void click(float x, float y, MouseButton mouseButton) override;
+			void releaseClick(float x, float y, MouseButton mouseButton) override;
 
 		protected:
 			virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;

@@ -123,6 +123,26 @@ namespace o2 {
 			sprite.setTexture(renderTexture.getTexture(), true);
 		}
 
+		bool ScrollPanelRenderer::containsPoint(float x, float y) const {
+			return
+				scrollPanel->x <= x                              and
+				x <= scrollPanel->x + scrollPanel->visibleWidth  and
+				scrollPanel->y <= y                              and
+				y <= scrollPanel->y + scrollPanel->visibleHeight;
+		}
+
+		int ScrollPanelRenderer::getZIndex() const {
+			return scrollPanel->zIndex;
+		}
+
+		void ScrollPanelRenderer::click(float x, float y, MouseButton mouseButton) {
+			scrollPanel->onClick(x, y, mouseButton);
+		}
+
+		void ScrollPanelRenderer::releaseClick(float x, float y, MouseButton mouseButton) {
+			scrollPanel->onClickRelease(x, y, mouseButton);
+		}
+
 		void ScrollPanelRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 			states.transform *= getTransform();
 			target.draw(sprite, states);

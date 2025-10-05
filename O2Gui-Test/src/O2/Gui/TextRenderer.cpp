@@ -114,12 +114,27 @@ namespace o2 {
 		}
 
 		void TextRenderer::update() {
+			if (text->maxWidth > 0) {
+				setWrapWidth(text->maxWidth);
+			}
 			setPosition({ text->x, text->y });
 			setScale({ text->scale, text->scale });
 			colors = text->colors;
 			setString(text->text);
 			owned = text->owned;
 			render();
+			
+			text->width = boundingBox.size.x;
+			text->height = boundingBox.size.y;
+		}
+
+		bool TextRenderer::containsPoint(float x, float y) const {
+			// TODO add a getBounds to text... or just dont provide this function
+			return false;
+		}
+
+		int TextRenderer::getZIndex() const {
+			return text->zIndex;
 		}
 
 	} // namespace gui

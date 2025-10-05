@@ -16,6 +16,8 @@ namespace o2 {
 			ImageRenderer(std::shared_ptr<Image>& image, std::weak_ptr<sf::Texture> texture);
 
 			void update() override;
+			bool containsPoint(float x, float y) const override;
+			int getZIndex() const override;
 
 		protected:
 			virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;

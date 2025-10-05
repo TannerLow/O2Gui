@@ -20,6 +20,26 @@ namespace o2 {
 			setPosition({ button->x, button->y });
 		}
 
+		bool ButtonRenderer::containsPoint(float x, float y) const {
+			return
+				button->x <= x and
+				x <= button->x + button->width and
+				button->y <= y and
+				y <= button->y + button->height;
+		}
+
+		int ButtonRenderer::getZIndex() const {
+			return button->zIndex;
+		}
+
+		void ButtonRenderer::click(float x, float y, MouseButton mouseButton) {
+			button->onClick(x, y, mouseButton);
+		}
+
+		void ButtonRenderer::releaseClick(float x, float y, MouseButton mouseButton) {
+			button->onReleaseClick(x, y, mouseButton);
+		}
+
 		void ButtonRenderer::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 			states.transform *= getTransform();
 			target.draw(rectangle, states);

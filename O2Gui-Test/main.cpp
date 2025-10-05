@@ -5,6 +5,8 @@
 #include <O2/Gui/ScrollDirection.h>
 #include <O2/Gui/ScrollBarTextures.h>
 #include <O2/Util/RateLimiter.h>
+#include <O2/Gui/MouseButton.h>
+#include <O2/Gui/EventBroadcaster.h>
 
 
 namespace fs = std::filesystem;
@@ -28,7 +30,7 @@ int main() {
     button->height = 100;
     button->color = o2::gui::Color(sf::Color::Green);
     button->render();
-    button->setOnClick(buttonClickedMessage);
+    button->setCallback(buttonClickedMessage);
 
     auto image = graphicsManager.createImage(fs::path("resources/double_shottys.png"));
     image->x = 0;
@@ -44,7 +46,9 @@ int main() {
     temp->width = 220;
     temp->height = 220;
     temp->color = o2::gui::Color(sf::Color::Red);
+    temp->zIndex = -10;
     temp->render();
+    temp->setCallback(buttonClickedMessage);
 
     auto minecraftFont = graphicsManager.loadFont(
         "minecraft_unicode",
@@ -71,6 +75,7 @@ int main() {
     scrollBarTextures.bar = fs::path("resources/gray_scroll_bar.png");
     scrollBarTextures.barBackground = fs::path("resources/gray_scroll_bar_bg.png");
     scrollBarTextures.decrease = fs::path("resources/gray_scroll_up.png");
+
     auto scrollPanel = graphicsManager.createScrollPanel(scrollBarTextures);
     scrollPanel->x = 400;
     scrollPanel->y = 300;
@@ -81,6 +86,31 @@ int main() {
     scrollPanel->elements["text"] = text;
     scrollPanel->render();
 
+    auto textboxText = graphicsManager.createText("minecraft_unicode");
+    textboxText->text = "I am a textbox";
+    textboxText->x = 5;
+    textboxText->y = 5;
+    textboxText->maxWidth = 300 - 2 * textboxText->x;
+    textboxText->scale = 1;
+    textboxText->colors[0] = o2::gui::Color(sf::Color::Black);
+    textboxText->owned = true;
+    textboxText->render();
+
+    std::shared_ptr<o2::gui::EventBroadcaster> eventBroadcaster = std::make_shared<o2::gui::EventBroadcaster>();
+
+    auto textbox = graphicsManager.createTextBox(std::nullopt);
+    textbox->x = 500;
+    textbox->y = 40;
+    textbox->width = 300;
+    textbox->height = 100;
+    textbox->text = textboxText;
+    textbox->render();
+    textbox->eventBroadcaster = eventBroadcaster;
+
+    // textboxText.reset(); // doesnt make text disappear because theres no way to clean old renderers in graphics manager yet
+
+    graphicsManager.sortByZIndex();
+
     while (window.isOpen()) {
         while (const std::optional event = window.pollEvent()) {
             if (event->is<sf::Event::Closed>()) {
@@ -90,15 +120,14 @@ int main() {
                 if (mouseButtonPressed->button == sf::Mouse::Button::Left) {
                     std::cout << "mouse click  : (" << mouseButtonPressed->position.x << ", " << mouseButtonPressed->position.y << ")" << std::endl;
                     sf::Vector2f coords = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-                    button->handleClick(coords.x, coords.y);
-                    scrollPanel->handleClick(coords.x, coords.y);
+                    graphicsManager.click(coords.x, coords.y, o2::gui::convert::toMouseButton(mouseButtonPressed->button));
                 }
             }
             else if (const auto* mouseButtonReleased = event->getIf<sf::Event::MouseButtonReleased>()) {
                 if (mouseButtonReleased->button == sf::Mouse::Button::Left) {
                     std::cout << "mouse release: (" << mouseButtonReleased->position.x << ", " << mouseButtonReleased->position.y << ")" << std::endl;
                     sf::Vector2f coords = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-                    scrollPanel->handleClickRelease(coords.x, coords.y);
+                    graphicsManager.releaseClick(coords.x, coords.y, o2::gui::convert::toMouseButton(mouseButtonReleased->button));
                 }
             }
             else if (const auto* mouseWheelScrolled = event->getIf<sf::Event::MouseWheelScrolled>()) {
@@ -109,29 +138,30 @@ int main() {
 
                 scrollPanel->handleScroll(direction);
             }
-            else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
-                if (keyPressed->scancode == sf::Keyboard::Scan::Escape) {
-                    std::cout << "the escape key was pressed" << std::endl;
-                    std::cout << "scancode: " << static_cast<int>(keyPressed->scancode) << std::endl;
-                    std::cout << "code: " << static_cast<int>(keyPressed->code) << std::endl;
-                    std::cout << "control: " << keyPressed->control << std::endl;
-                    std::cout << "alt: " << keyPressed->alt << std::endl;
-                    std::cout << "shift: " << keyPressed->shift << std::endl;
-                    std::cout << "system: " << keyPressed->system << std::endl;
-                    std::cout << "description: " << sf::Keyboard::getDescription(keyPressed->scancode).toAnsiString() << std::endl;
-                    std::cout << "localize: " << static_cast<int>(sf::Keyboard::localize(keyPressed->scancode)) << std::endl;
-                    std::cout << "delocalize: " << static_cast<int>(sf::Keyboard::delocalize(keyPressed->code)) << std::endl;
-                }
-                std::cout << "Key pressed event" << std::endl;
-            }
+            //else if (const auto* keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+            //    if (keyPressed->scancode == sf::Keyboard::Scan::Escape) {
+            //        std::cout << "the escape key was pressed" << std::endl;
+            //        std::cout << "scancode: " << static_cast<int>(keyPressed->scancode) << std::endl;
+            //        std::cout << "code: " << static_cast<int>(keyPressed->code) << std::endl;
+            //        std::cout << "control: " << keyPressed->control << std::endl;
+            //        std::cout << "alt: " << keyPressed->alt << std::endl;
+            //        std::cout << "shift: " << keyPressed->shift << std::endl;
+            //        std::cout << "system: " << keyPressed->system << std::endl;
+            //        std::cout << "description: " << sf::Keyboard::getDescription(keyPressed->scancode).toAnsiString() << std::endl;
+            //        std::cout << "localize: " << static_cast<int>(sf::Keyboard::localize(keyPressed->scancode)) << std::endl;
+            //        std::cout << "delocalize: " << static_cast<int>(sf::Keyboard::delocalize(keyPressed->code)) << std::endl;
+            //    }
+            //    std::cout << "Key pressed event" << std::endl;
+            //}
             else if (const auto* textEntered = event->getIf<sf::Event::TextEntered>()) {
+                //std::cout << "ASCII character typed: " << static_cast<int>(textEntered->unicode) << std::endl;
                 if (textEntered->unicode < 128) {
-                    std::cout << "ASCII character typed: " << static_cast<char>(textEntered->unicode) << std::endl;
+                    eventBroadcaster->broadcastEvent(textEntered);
                 }
             }
         }
 
-        sf::Vector2f mouseCoords = sf::Vector2f(sf::Mouse::getPosition(window));
+        sf::Vector2f mouseCoords = window.mapPixelToCoords(sf::Mouse::getPosition(window));
         scrollPanel->update(mouseCoords.x, mouseCoords.y);
 
         if (drawLimiter.isReady()) {

@@ -14,10 +14,14 @@ namespace o2 {
 			float height;
 			Color color;
 			std::function<void()> callback;
+			int zIndex = 0;
+			bool isPressed = false;
 
 		public:
-			void setOnClick(std::function<void()> callback);
-			void handleClick(float clickX, float clickY);
+			void setCallback(std::function<void()> callback);
+			// NOTE technically dont need x and y coords since the bounds should have already been checked in the graphics manager
+			void onClick(float clickX, float clickY, MouseButton mouseButton);
+			void onReleaseClick(float clickX, float clickY, MouseButton mouseButton);
 		};
 
 	} // namespace gui
